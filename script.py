@@ -45,3 +45,10 @@ rasterized = features.rasterize(geom_value,
                                 fill = -5,   # background value
                                 merge_alg = MergeAlg.replace,
                                 dtype = 'int16')
+
+out_raster_address = f"/Users/ihasan/Downloads/TAMU/Network Theory/mspa/data/GFPlain/Raster/gfplain_{res}_sc.tif"
+with rasterio.open(out_raster_address
+        , "w",
+  **out_meta
+) as dst:
+    dst.write(rasterized, 1)
